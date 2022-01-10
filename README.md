@@ -2,7 +2,7 @@
 beginner projects to brush up on js concepts
 
 1. Different weight convertor 
-- In this, one can convert the input weight into pounds, kilograms, grams and ounces. 
+- One can convert the input weight into pounds, kilograms, grams and ounces. 
 - Some Bootstrap components are used in the making of the user interface. 
 - Implements basic DOM manipulation concepts.
 
