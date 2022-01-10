@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Calculate your grade</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
+      crossorigin="anonymous"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <div class="main-box">
+        <h2>Student Grade Calculator</h2>
+        <h3>Enter your marks for your respective subjects below-</h3>
+        <form >
+        <div class="app-group">
+          <input
+            type="text"
+            class="app-control"
+            placeholder="TCS Marks"
+            id="tc"
+          />
+        </div>
+        <div class="app-group">
+          <input
+            type="text"
+            class="app-control"
+            placeholder="DWM Marks"
+            id="dw"
+          />
+        </div>
+        <div class="app-group">
+          <input
+            type="text"
+            class="app-control"
+            placeholder="CN Marks"
+            id="cn"
+          />
+        </div>
+        <div class="app-group">
+          <input
+            type="text"
+            class="app-control"
+            placeholder="IP Marks"
+            id="ip"
+          />
+        </div>
+        <div class="app-group">
+          <input
+            type="text"
+            class="app-control"
+            placeholder="SE Marks"
+            id="se"
+          />
+        </div>
+        <div class="app-group">
+          <input
+            type="text"
+            class="app-control"
+            placeholder="BCE Marks"
+            id="bc"
+          />
+        </div>
+        <div class="d-grid gap-2 d-md-block button">
+          <input
+            type="button"
+            value="showPercentage"
+            class="app-form-button"
+            onClick="calculator()"
+          />
+        </div>
+        <!-- <div class="d-grid gap-2 d-md-block button">
+          <input type="reset" value="Reset the form" />
+        </div> -->
+
+        <div class="output"><p id="showdata"></p></div>
+      </div>
+    </div>
+</form>
+    <!-- <link rel="stylesheet" href="scripts.js" /> -->
+    <script>
+      const calculator = () => {
+        let tc = document.getElementById("tc").value;
+        let dw = document.getElementById("dw").value;
+        let cn = document.getElementById("cn").value;
+        let ip = document.getElementById("ip").value;
+        let se = document.getElementById("se").value;
+        let bc = document.getElementById("bc").value;
+        let grades = "";
+
+        totalGrades =
+          parseFloat(tc) +
+          parseFloat(dw) +
+          parseFloat(cn) +
+          parseFloat(ip) +
+          parseFloat(se) +
+          parseFloat(bc);
+        console.log(totalGrades);
+        let perc = (totalGrades / 600) * 100;
+        console.log(perc);
+        //to check the grade of the sstudent from A to F
+        if (perc <= 100 && perc >= 80) {
+          grades = "A";
+        } else if (perc <= 79 && perc >= 60) {
+          grades = "B";
+        } else if (perc <= 59 && perc >= 40) {
+          grades = "C";
+        } else {
+          grades = "F";
+        }
+        // To check if the student is pass or fail
+        if (perc >= 40) {
+            // console.log('pass hogaya')
+          document.getElementById(
+            "showdata"
+          ).innerHTML = `Out of 600 your total is ${totalGrades} and percentage is ${perc}%. <br> Your grade is ${grades}. You have passed`;
+        } else {
+          document.getElementById(
+            "showdata"
+          ).innerHTML = `Out of 600 your total is ${totalGrades} and percentage is ${perc}%. <br> Your grade is ${grades}. You have not passsed`;
+        }
+      };
+    </script>
+  </body>
+</html>
